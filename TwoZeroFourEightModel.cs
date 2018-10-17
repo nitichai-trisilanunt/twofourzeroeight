@@ -260,5 +260,34 @@ namespace twozerofoureight
             board = Random(board);
             NotifyAll();
         }
+        
+        public int GetScore()
+        {
+            int sum = 0;
+            for(int i=0; i<boardSize; i++)
+            {
+                for(int j = 0; j<boardSize; j++)
+                {
+                    sum = sum + board[i, j];
+                }
+            }
+            return sum;
+        }
+
+        public bool CheckGameOver()
+        {
+            for (int i = 0; i < boardSize; i++)
+            {
+                for (int j = 0; j < boardSize; j++)
+                {
+                    if (board[i, j] == 2048)
+                    {
+                        return true;
+                    }              
+                }
+            }
+            return false;
+
+        }
     }
 }
